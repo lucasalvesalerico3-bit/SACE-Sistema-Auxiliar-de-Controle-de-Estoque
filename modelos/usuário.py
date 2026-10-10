@@ -9,10 +9,10 @@ class Usuario:
         self.cadastro = datetime.now()
 
     def ativar_usuario(self):
-        self.ativo = False
+        self.ativo = True
 
     def desativar_usuario(self):
         self.ativo = False
 
-    def __str__(self)
+    def __str__(self):
         return f"{self.nome} ({self.usuario})"
