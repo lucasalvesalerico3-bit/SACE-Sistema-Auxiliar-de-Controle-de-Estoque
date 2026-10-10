@@ -1,7 +1,7 @@
 from datetime import datetime
 
 class Usuario:
-    def init(self, usuario, senha_hash, nome):
+    def __init__(self, usuario, senha_hash, nome):
         self.usuario = usuario
         self.senha_hash = senha_hash
         self.nome = nome
@@ -14,5 +14,5 @@ class Usuario:
     def desativar_usuario(self):
         self.ativo = False
 
-    def str(self):
+    def __str__(self)
         return f"{self.nome} ({self.usuario})"
