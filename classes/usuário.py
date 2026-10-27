@@ -14,5 +14,11 @@ class Usuario:
     def desativar_usuario(self):
         self.ativo = False
 
+    def verificar_status(self):
+        if self.ativo:
+            return "Ativo"
+        else:
+            return "Inativo"
+
     def __str__(self):
         return f"{self.nome} ({self.usuario})"
