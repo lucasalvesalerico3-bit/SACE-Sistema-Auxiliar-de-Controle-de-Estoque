@@ -1,5 +1,6 @@
 import customtkinter as ctk
 
+from classes.telas.tela_materiais import TelaMateriais
 
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("blue")
@@ -13,6 +14,8 @@ class SACE(ctk.CTk):
         self.title("SACE - Sistema Auxiliar de Controle de Estoque")
         self.geometry("900x600")
         self.minsize(900, 600)
+        self.resizable(True, True)
+        self.tela_materiais = None
 
         self.configure(fg_color="#F3F4F6")
 
@@ -76,6 +79,8 @@ class SACE(ctk.CTk):
                 pady=7,
                 sticky="ew"
             )
+            if nome == "Materiais":
+                botao.configure(command=self.abrir_materiais)
 
         self.botao_sair = ctk.CTkButton(
             self.sidebar,
@@ -165,6 +170,14 @@ class SACE(ctk.CTk):
             padx=25,
             pady=(0, 30)
         )
+
+    def abrir_materiais(self):
+        if self.tela_materiais is not None:
+            return
+        for widget in self.conteudo.winfo_children():
+            widget.destroy()
+        self.tela_materiais = TelaMateriais(self.conteudo)
+        self.tela_materiais.pack(fill="both", expand=True)
 
 
 if __name__ == "__main__":
